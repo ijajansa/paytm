@@ -92,14 +92,14 @@ class AgentController extends Controller
         }
         elseif($check>9 && $check <=99)
         {
-           $agentId = "VI00".$check + 1; 
-       }
-       elseif($check>99 && $check <=999)
-       {
-           $agentId = "VI0".$check + 1; 
-       }
-       elseif($check>999)
-       {
+         $agentId = "VI00".$check + 1; 
+     }
+     elseif($check>99 && $check <=999)
+     {
+         $agentId = "VI0".$check + 1; 
+     }
+     elseif($check>999)
+     {
         $agentId = "VI".$check + 1;
     }
     $data->agent_id = $agentId;
@@ -169,7 +169,7 @@ public function status($id)
         return redirect()->back()->with('success','Agent status updated successfully');
 
     }
-        return redirect()->back()->with('error','Something went wrong');
+    return redirect()->back()->with('error','Something went wrong');
 }
 
 public function edit($id)
@@ -180,7 +180,55 @@ public function edit($id)
         return view('agents.edit',compact('data'));
 
     }
-        return redirect()->back()->with('error','Something went wrong');
+    return redirect()->back()->with('error','Something went wrong');
+}
+public function update(Request $request)
+{
+    $request->validate([
+        'full_name' => 'required',
+        'email' => 'required|email|unique:users,email,'.$request->id.'',
+        'mobile_number' => 'required|unique:users,mobile_number,'.$request->id.'|digits:10',
+        'pan_number' => 'required|regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/',
+        'aadhar_number' => 'required|digits:12',
+        'visible_password' => 'required|min:8',
+        'address' => 'required',
+        'pincode' => 'required',
+        'city' => 'required',
+        'state' => 'required',
+        'street' => 'required',
+        'dob' => 'required',
+        'gender' => 'required',
+        'bank_name' => 'required',
+        'accountant_name' => 'required',
+        'account_number' => 'required',
+        'ifsc_code' => 'required'
+    ],[
+        'dob.required' => 'The date of birth field is required.',
+        'visible_password.required' => 'The password field is required.'
+    ]);
+
+    $data =User::find($request->id);
+    $data->role_id = 2;
+    $data->full_name = $request->full_name;
+    $data->gender = $request->gender ?? null;
+    $data->dob = $request->dob;
+    $data->email = $request->email;
+    $data->mobile_number = $request->mobile_number;
+    $data->pan_number = $request->pan_number;
+    $data->aadhar_number = $request->aadhar_number;
+    $data->password = \Hash::make($request->visible_password);
+    $data->visible_password = $request->visible_password;
+    $data->street = $request->street;
+    $data->address = $request->address;
+    $data->pincode = $request->pincode;
+    $data->city = $request->city;
+    $data->state = $request->state;
+    $data->bank_name = $request->bank_name;
+    $data->accountant_name = $request->accountant_name;
+    $data->account_number = $request->account_number;
+    $data->ifsc_code = $request->ifsc_code;
+    $data->save();
+    return redirect('agents')->with('success','Agent details updated successfully');
 }
 
 }

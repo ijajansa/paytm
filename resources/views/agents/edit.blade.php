@@ -55,7 +55,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Date Of Birth</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control @error('dob') is-invalid @enderror" value="{{ $data->dob }}" name="dob" placeholder="" id="full-name-1">
+                                                <input type="date" class="form-control @error('dob') is-invalid @enderror" value="{{ $data->dob }}" name="dob" placeholder="" id="full-name-1">
                                                 @error('dob')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -136,7 +136,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Agent ID</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control @error('agent_id') is-invalid @enderror" readonly value="{{ $data->agent_id }}" name="agent_id" placeholder="" id="full-name-1">
+                                                <input type="text" class="form-control @error('agent_id') is-invalid @enderror" readonly value="{{ $data->agent_id }}" placeholder="" id="full-name-1">
                                                 @error('agent_id')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
