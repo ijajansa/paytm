@@ -140,15 +140,15 @@ public function loginAgent(Request $request)
     $data = User::where('agent_id',$request->agent_id)->first();
     if($data)
     {
+        if($data->is_active == 0)
+        {
+            return redirect()->back()->withErrors(['agent_id'=>'Agent account disabled by admin'])->withInput();
+        } 
         if(\Hash::check($request->password, $data->password)) 
         {
             \Auth::login($data);
             return redirect('customers');  
         }
-        else if($data->is_active ==0)
-        {
-            return redirect()->back()->withErrors(['agent_id'=>'Agent account disabled by admin'])->withInput();
-        } 
         else 
         {
             return redirect()->back()->withErrors(['agent_id'=>'Password does not match with record'])->withInput();

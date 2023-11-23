@@ -19,10 +19,15 @@
     margin-right: auto;
     width: 11%;
     }
+    .container{
+        width: 900px !important;height: auto !important
+    }
+
+   
 </style>
 </head>
 <body>
-    <div class="container" style="width: 900px !important;height: 400px !important">
+    <div class="container" style="">
       <div >
         <img  class="text-center"  src="{{asset('img/icon_main.png')}}" alt="">
       </div>

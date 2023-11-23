@@ -37,6 +37,17 @@
       margin-top: 0px !important;
     }
 
+    @media(max-width: 600px)
+    {
+      .container{
+        width: 100% !important;
+        height: 100% !important
+      }
+      .container form {
+        height: 100% !important;
+      }
+    }
+
   </style>
 </head>
 <body>
