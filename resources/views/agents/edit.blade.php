@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <div class="nk-content-inner">
             <div class="nk-content-body">
+                @include('admin-layouts.flash')
                 <div class="nk-block-head nk-block-head-sm">
                     <div class="nk-block-between">
                         <div class="nk-block-head-content">

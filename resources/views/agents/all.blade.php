@@ -68,10 +68,16 @@
             "searching":true,
             "bLengthChange":true,
 
+
             ajax:"{{url('agents')}}",
-            "order":[
-            [0,"desc"]
-            ],
+            // "order":[
+            // [0,"desc"]
+            // ],
+            "columnDefs": [{
+                "orderable": false,
+                "targets": '_all'
+                }
+                ],
             responsive: !0,
             autoFill: !0,
             keys: !0,
@@ -85,13 +91,13 @@
                 "mData":"id",
                 render: function (data, type, row, meta) {
                     return meta.row + meta.settings._iDisplayStart + 1;
-                }
+                },
             },
             {
-                "mData":"agent_id"
+                "mData":"agent_id",
             },
             {            
-                "mData":"full_name"
+                "mData":"full_name",
             },
             {
                 "mData":"email"
@@ -106,6 +112,7 @@
                 "mData":"action"
             }
             ]
+
 
         });
         

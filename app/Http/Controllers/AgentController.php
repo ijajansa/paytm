@@ -46,11 +46,11 @@ class AgentController extends Controller
     		'full_name' => 'required|regex:/^[\pL\s\-]+$/u',
     		'email' => 'required|email|unique:users',
     		'mobile_number' => 'required|unique:users,mobile_number|digits:10',
-    		'pan_number' => 'required|regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/',
-    		'aadhar_number' => 'required|digits:12|numeric',
+    		'pan_number' => 'required|unique:users,pan_number|regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/',
+    		'aadhar_number' => 'required|unique:users,aadhar_number|digits:12|numeric',
     		'password' => 'required|min:12',
     		'address' => 'required',
-    		'pincode' => 'required',
+    		'pincode' => 'required|numeric|min:6',
     		'city' => 'required',
             'state' => 'required',
             'street' => 'required',
@@ -58,7 +58,7 @@ class AgentController extends Controller
             'gender' => 'required',
             'bank_name' => 'required',
             'accountant_name' => 'required',
-            'account_number' => 'required',
+            'account_number' => 'required|unique:users,account_number',
             'ifsc_code' => 'required'
         ],[
             'dob.required' => 'The date of birth field is required.'
@@ -228,7 +228,7 @@ public function update(Request $request)
     $data->account_number = $request->account_number;
     $data->ifsc_code = $request->ifsc_code;
     $data->save();
-    return redirect('agents')->with('success','Agent details updated successfully');
+    return redirect('agents/edit/'.$data->id)->with('success','Agent details updated successfully');
 }
 
 }

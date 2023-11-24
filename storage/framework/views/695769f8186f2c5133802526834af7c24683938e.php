@@ -5,6 +5,7 @@
     <div class="container-fluid">
         <div class="nk-content-inner">
             <div class="nk-content-body">
+                <?php echo $__env->make('admin-layouts.flash', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
                 <div class="nk-block-head nk-block-head-sm">
                     <div class="nk-block-between">
                         <div class="nk-block-head-content">

@@ -145,7 +145,7 @@
                     </div>
                     <div class="input-field">
                         <label>PAN Card No</label>
-                        <input type="text" name="pan_number" class="@error('pan_number') is-invalid @enderror" value="{{old('pan_number')}}" placeholder="Enter pan card no">
+                        <input type="text" name="pan_number" class="@error('pan_number') is-invalid @enderror" value="{{old('pan_number')}}" maxlength="10" placeholder="Enter pan card no" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode > 64 && event.charCode < 91)'>
                         @error('pan_number')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -156,7 +156,7 @@
                     </div> -->
                     <div class="input-field">
                         <label>Password</label>
-                        <input type="password" name="password" class="@error('password') is-invalid @enderror" placeholder="Enter password">
+                        <input type="text" name="password" class="@error('password') is-invalid @enderror" placeholder="Enter password">
                         @error('password')
                         <span class="invalid">{{$message}}</span>
                         @enderror

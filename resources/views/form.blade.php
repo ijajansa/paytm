@@ -53,14 +53,15 @@
                     </div>
                     <div class="input-field">
                         <label>Customer Name</label>
-                        <input type="text" name="customer_name" class="@error('customer_name') is-invalid @enderror" value="{{old('customer_name')}}" placeholder="Enter customer name">
+                        <input type="text" name="customer_name" class="@error('customer_name') is-invalid @enderror" value="{{old('customer_name')}}" placeholder="Enter customer name" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         @error('customer_name')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>Customer Mobile Number</label>
-                        <input type="text" name="mobile_number" class="@error('mobile_number') is-invalid @enderror" value="{{old('mobile_number')}}" placeholder="Enter customer number">
+                        <input type="text" name="mobile_number" class="@error('mobile_number') is-invalid @enderror" value="{{old('mobile_number')}}" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter customer number">
                         @error('mobile_number')
                         <span class="invalid">{{$message}}</span>
                         @enderror
