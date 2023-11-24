@@ -40,6 +40,7 @@ class ImportController extends Controller
     }
     public function exportExcel(Request $request)
     {
-    	return Excel::download(new CustomerExport, 'customers.xlsx');
+    	$name = 'customers-'.date('Ymd').'.xlsx';
+    	return Excel::download(new CustomerExport, $name);
     }
 }
