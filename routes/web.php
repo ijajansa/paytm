@@ -6,6 +6,7 @@ use App\Http\Controllers\SubAgentController;
 use App\Http\Controllers\PanelController;
 use App\Http\Controllers\LoanApplicationController;
 use App\Http\Controllers\LoanMasterController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\LoanDocumentController;
 
 
@@ -39,6 +40,12 @@ Route::post('add-customer',[AgentController::class, 'insertCustomer']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['prefix' => 'import-excel', 'middleware'=> ['auth','role']], function(){
+	Route::get('/',[ImportController::class, 'all']);
+	Route::get('add',[ImportController::class, 'add']);
+	Route::post('add',[ImportController::class, 'insert']);
+});
 
 Route::group(['prefix' => 'agents', 'middleware'=> ['auth','role']], function(){
 	Route::get('/',[AgentController::class, 'all']);

@@ -43,10 +43,10 @@
                                     </ul><!-- .nk-menu-sub -->
                                 </li><!-- .nk-menu-item -->
                                 
-                              <!--   <li class="nk-menu-item has-sub">
+                               <!--  <li class="nk-menu-item has-sub">
                                     <a href="#" class="nk-menu-link nk-menu-toggle">
                                         <span class="nk-menu-icon"><em class="icon ni ni-file"></em></span>
-                                        <span class="nk-menu-text">Loan Master</span>
+                                        <span class="nk-menu-text">Import Files</span>
                                     </a>
                                     <ul class="nk-menu-sub">
                                         <li class="nk-menu-item">
@@ -59,13 +59,13 @@
                                         
                                     </ul>
                                 </li> -->
-                               <!--   <li class="nk-menu-item">
-                                    <a href="{{url('loan-applications')}}" class="nk-menu-link">
+                                 <li class="nk-menu-item">
+                                    <a href="{{url('import-excel')}}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-file"></em></span>
-                                        <span class="nk-menu-text">Loan Applications</span>
+                                        <span class="nk-menu-text">Import Excel</span>
                                     </a>
                                    
-                                </li> -->
+                                </li>
                                 <!-- .nk-menu-item -->
                                 
                             </ul><!-- .nk-menu -->
