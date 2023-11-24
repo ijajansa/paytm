@@ -47,6 +47,9 @@ Route::group(['prefix' => 'import-excel', 'middleware'=> ['auth','role']], funct
 	Route::post('add',[ImportController::class, 'insert']);
 });
 
+Route::get('export-excel',[ImportController::class, 'exportExcel']);
+
+
 Route::group(['prefix' => 'agents', 'middleware'=> ['auth','role']], function(){
 	Route::get('/',[AgentController::class, 'all']);
 	Route::get('add',[AgentController::class, 'add']);

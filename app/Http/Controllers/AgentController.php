@@ -43,12 +43,12 @@ class AgentController extends Controller
     {
 
     	$request->validate([
-    		'full_name' => 'required',
+    		'full_name' => 'required|regex:/^[\pL\s\-]+$/u',
     		'email' => 'required|email|unique:users',
     		'mobile_number' => 'required|unique:users,mobile_number|digits:10',
     		'pan_number' => 'required|regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/',
-    		'aadhar_number' => 'required|digits:12',
-    		'password' => 'required|min:8',
+    		'aadhar_number' => 'required|digits:12|numeric',
+    		'password' => 'required|min:12',
     		'address' => 'required',
     		'pincode' => 'required',
     		'city' => 'required',

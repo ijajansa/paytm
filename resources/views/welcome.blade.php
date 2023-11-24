@@ -45,7 +45,7 @@
             <div class="form first">
                 <div class="details personal">
 
-                   <div class="fields">
+                 <div class="fields">
                     <div class="">  <span class="title">Personal Details</span></div>
                     <button type="button" onclick=window.location.href='{{url("/")}}' style="height: 28px;">Add Customer</button>
                     <!-- <div class="" > <a class="btn " style="height: 28px;" href="/home.html">link text</a> </div> -->
@@ -55,7 +55,8 @@
                 <div class="fields">
                     <div class="input-field">
                         <label>Full Name</label>
-                        <input type="text" placeholder="Enter your name" class="@error('full_name') is-invalid @enderror" value="{{old('full_name')}}" name="full_name">
+                        <input type="text" placeholder="Enter your name" class="@error('full_name') is-invalid @enderror" value="{{old('full_name')}}" name="full_name" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         @error('full_name')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -63,7 +64,7 @@
 
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="date" placeholder="Enter birth date" value="{{old('dob')}}" class="@error('dob') is-invalid @enderror" name="dob">
+                        <input type="date" placeholder="Enter birth date" max="{{date('Y-m-d')}}" value="{{old('dob')}}" class="@error('dob') is-invalid @enderror" name="dob">
                         @error('dob')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -97,21 +98,23 @@
                     </div>
                     <div class="input-field">
                         <label>City</label>
-                        <input type="text" name="city" value="{{old('city')}}" class="@error('city') is-invalid @enderror" placeholder="Enter your city">
+                        <input type="text" name="city" value="{{old('city')}}" class="@error('city') is-invalid @enderror" placeholder="Enter your city" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         @error('city')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>State</label>
-                        <input type="text" name="state" value="{{old('state')}}" class="@error('state') is-invalid @enderror" placeholder="Enter your state">
+                        <input type="text" name="state" value="{{old('state')}}" class="@error('state') is-invalid @enderror" placeholder="Enter your state" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         @error('state')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>PIN Code</label>
-                        <input type="text" name="pincode" value="{{old('pincode')}}" class="@error('pincode') is-invalid @enderror" placeholder="Enter your pin code">
+                        <input type="text" name="pincode" value="{{old('pincode')}}" class="@error('pincode') is-invalid @enderror" placeholder="Enter your pin code"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="6"> 
                         @error('pincode')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -128,14 +131,14 @@
 
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="number" name="mobile_number" value="{{old('mobile_number')}}" class="@error('mobile_number') is-invalid @enderror" placeholder="Enter mobile number">
+                        <input type="text" maxlength="10" name="mobile_number" value="{{old('mobile_number')}}" class="@error('mobile_number') is-invalid @enderror" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter mobile number">
                         @error('mobile_number')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>Aadhar Card No</label>
-                        <input type="number" name="aadhar_number" class="@error('aadhar_number') is-invalid @enderror" value="{{old('aadhar_number')}}" placeholder="Enter aadhar card no">
+                        <input type="text" maxlength="12" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="aadhar_number" class="@error('aadhar_number') is-invalid @enderror" value="{{old('aadhar_number')}}" placeholder="Enter aadhar card no">
                         @error('aadhar_number')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -147,10 +150,10 @@
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="input-field">
+                    <!-- <div class="input-field">
                         <label>Agent ID (To be filled for VISIONINDIA)</label>
                         <input type="number" name="agent_id" placeholder="Enter agent id">
-                    </div>
+                    </div> -->
                     <div class="input-field">
                         <label>Password</label>
                         <input type="password" name="password" class="@error('password') is-invalid @enderror" placeholder="Enter password">
@@ -166,21 +169,23 @@
                 <div class="fields">
                     <div class="input-field">
                         <label>Bank Name</label>
-                        <input type="text" name="bank_name" class="@error('bank_name') is-invalid @enderror" value="{{old('bank_name')}}" placeholder="Enter bank name">
+                        <input type="text" name="bank_name" class="@error('bank_name') is-invalid @enderror" value="{{old('bank_name')}}" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)" placeholder="Enter bank name">
                         @error('bank_name')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>Account Holder Name</label>
-                        <input type="text" name="accountant_name" class="@error('accountant_name') is-invalid @enderror"  value="{{old('accountant_name')}}" placeholder="Enter account holder name">
+                        <input type="text" name="accountant_name" class="@error('accountant_name') is-invalid @enderror"  value="{{old('accountant_name')}}" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)" placeholder="Enter account holder name">
                         @error('accountant_name')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>Account Number</label>
-                        <input type="text" name="account_number" class="@error('account_number') is-invalid @enderror" value="{{old('account_number')}}" placeholder="Enter account number">
+                        <input type="text" name="account_number" class="@error('account_number') is-invalid @enderror" value="{{old('account_number')}}"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter account number">
                         @error('account_number')
                         <span class="invalid">{{$message}}</span>
                         @enderror

@@ -22,9 +22,11 @@
                                         </li>
                                        
                                         <li class="nk-block-tools-opt d-none d-sm-block">
-                                            <a href="<?php echo e(url('import-excel/add')); ?>" class="btn btn-primary"><em class="icon ni ni-plus"></em><span>Import Excel</span></a>
+                                            <a href="<?php echo e(url('export-excel')); ?>" class="btn btn-success"><em class="icon ni ni-download"></em><span>Export Excel</span></a>
+                                            <a href="<?php echo e(url('import-excel/add')); ?>" class="btn btn-primary"><em class="icon ni ni-upload"></em><span>Import Excel</span></a>
                                         </li>
                                         <li class="nk-block-tools-opt d-block d-sm-none">
+                                            <a href="<?php echo e(url('export-excel/')); ?>" class="btn btn-icon btn-primary"><em class="icon ni ni-plus"></em></a>
                                             <a href="<?php echo e(url('import-excel/add')); ?>" class="btn btn-icon btn-primary"><em class="icon ni ni-plus"></em></a>
                                         </li>
                                     </ul>

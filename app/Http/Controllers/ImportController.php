@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DataTables;
 use App\Models\User;
 use App\Imports\CustomerImport;
+use App\Exports\CustomerExport;
 use App\Models\CImport;
 use Excel;
 
@@ -36,5 +37,9 @@ class ImportController extends Controller
     	$file = $request->file('file');
         Excel::import(new CustomerImport, $file);
         return redirect('import-excel')->with('success', 'Data imported successfully!');
+    }
+    public function exportExcel(Request $request)
+    {
+    	return Excel::download(new CustomerExport, 'customers.xlsx');
     }
 }

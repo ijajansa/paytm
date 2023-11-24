@@ -45,7 +45,7 @@
             <div class="form first">
                 <div class="details personal">
 
-                   <div class="fields">
+                 <div class="fields">
                     <div class="">  <span class="title">Personal Details</span></div>
                     <button type="button" onclick=window.location.href='<?php echo e(url("/")); ?>' style="height: 28px;">Add Customer</button>
                     <!-- <div class="" > <a class="btn " style="height: 28px;" href="/home.html">link text</a> </div> -->
@@ -62,7 +62,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('full_name')); ?>" name="full_name">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('full_name')); ?>" name="full_name" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         <?php $__errorArgs = ['full_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -77,7 +78,7 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="date" placeholder="Enter birth date" value="<?php echo e(old('dob')); ?>" class="<?php $__errorArgs = ['dob'];
+                        <input type="date" placeholder="Enter birth date" max="<?php echo e(date('Y-m-d')); ?>" value="<?php echo e(old('dob')); ?>" class="<?php $__errorArgs = ['dob'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -174,7 +175,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" placeholder="Enter your city">
+unset($__errorArgs, $__bag); ?>" placeholder="Enter your city" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         <?php $__errorArgs = ['city'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -195,7 +197,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" placeholder="Enter your state">
+unset($__errorArgs, $__bag); ?>" placeholder="Enter your state" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                         <?php $__errorArgs = ['state'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -216,7 +219,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" placeholder="Enter your pin code">
+unset($__errorArgs, $__bag); ?>" placeholder="Enter your pin code"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="6"> 
                         <?php $__errorArgs = ['pincode'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -254,14 +257,14 @@ unset($__errorArgs, $__bag); ?>
 
                     <div class="input-field">
                         <label>Mobile Number</label>
-                        <input type="number" name="mobile_number" value="<?php echo e(old('mobile_number')); ?>" class="<?php $__errorArgs = ['mobile_number'];
+                        <input type="text" maxlength="10" name="mobile_number" value="<?php echo e(old('mobile_number')); ?>" class="<?php $__errorArgs = ['mobile_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" placeholder="Enter mobile number">
+unset($__errorArgs, $__bag); ?>" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter mobile number">
                         <?php $__errorArgs = ['mobile_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -275,7 +278,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="input-field">
                         <label>Aadhar Card No</label>
-                        <input type="number" name="aadhar_number" class="<?php $__errorArgs = ['aadhar_number'];
+                        <input type="text" maxlength="12" onkeypress='return event.charCode >= 48 && event.charCode <= 57' name="aadhar_number" class="<?php $__errorArgs = ['aadhar_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -315,10 +318,10 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
-                    <div class="input-field">
+                    <!-- <div class="input-field">
                         <label>Agent ID (To be filled for VISIONINDIA)</label>
                         <input type="number" name="agent_id" placeholder="Enter agent id">
-                    </div>
+                    </div> -->
                     <div class="input-field">
                         <label>Password</label>
                         <input type="password" name="password" class="<?php $__errorArgs = ['password'];
@@ -355,7 +358,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('bank_name')); ?>" placeholder="Enter bank name">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('bank_name')); ?>" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)" placeholder="Enter bank name">
                         <?php $__errorArgs = ['bank_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -376,7 +380,8 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>"  value="<?php echo e(old('accountant_name')); ?>" placeholder="Enter account holder name">
+unset($__errorArgs, $__bag); ?>"  value="<?php echo e(old('accountant_name')); ?>" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)" placeholder="Enter account holder name">
                         <?php $__errorArgs = ['accountant_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -397,7 +402,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('account_number')); ?>" placeholder="Enter account number">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e(old('account_number')); ?>"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="Enter account number">
                         <?php $__errorArgs = ['account_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
