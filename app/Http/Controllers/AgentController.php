@@ -92,14 +92,14 @@ class AgentController extends Controller
         }
         elseif($check>9 && $check <=99)
         {
-         $agentId = "VI00".$check + 1; 
-     }
-     elseif($check>99 && $check <=999)
-     {
-         $agentId = "VI0".$check + 1; 
-     }
-     elseif($check>999)
-     {
+           $agentId = "VI00".$check + 1; 
+       }
+       elseif($check>99 && $check <=999)
+       {
+           $agentId = "VI0".$check + 1; 
+       }
+       elseif($check>999)
+       {
         $agentId = "VI".$check + 1;
     }
     $data->agent_id = $agentId;
@@ -126,6 +126,28 @@ public function insertCustomer(Request $request)
     $user = User::where('agent_id',$request->agent_id)->first();
     $data->agent_id = $user->id;
     $data->save();
+    if($data)
+    {
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://otpsms.vision360solutions.in/api/sendhttp.php?authkey=410879AuOeVzmDiTYQ65670f68P1&mobiles='.$request->mobile_number.'&message=Hi%20there!%20To%20activate%20your%20account%2C%20simply%20click%20this%20link%3A%20https%3A%2F%2Fbit.ly%2FVITSLP_3%20Thank%20you!%20-%20VISIONINDIA&sender=VITSLP&route=4&country=91&DLT_TE_ID=1707170123675790840',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => '',
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => 'GET',
+          CURLOPT_HTTPHEADER => array(
+            'Cookie: PHPSESSID=dptkg2kd3rq1jost1gfq6mq9v3'
+        ),
+      ));
+
+        $response = curl_exec($curl);
+
+        curl_close($curl);
+    }
     return redirect()->back()->with('success','Customer added successfully');
 
 }
