@@ -48,7 +48,7 @@ class AgentController extends Controller
     		'mobile_number' => 'required|unique:users,mobile_number|digits:10',
     		'pan_number' => 'required|unique:users,pan_number|regex:/^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/',
     		'aadhar_number' => 'required|unique:users,aadhar_number|digits:12|numeric',
-    		'password' => 'required|min:12',
+            'password' => 'required|min:12|confirmed',
     		'address' => 'required',
     		'pincode' => 'required|numeric|min:6',
     		'city' => 'required',

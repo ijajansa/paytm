@@ -60,10 +60,10 @@
       <div class="form first">
         <div class="details personal">
 
-         <div class="fields">
+        <!--  <div class="fields">
           <div class="">  <span class="title">Admin Information</span></div>
         </div>
-
+ -->
         <div class="fields">
 
           <div class="input-field">
@@ -98,21 +98,15 @@ unset($__errorArgs, $__bag); ?>
       </div>
 
       <div class="details ID">
+        <p align="center" style="margin: 0;padding: 0">
         <button type="submit" class="nextBtn" style="margin-bottom: 2px !important">
           <span class="btnText">Login</span>
         </button>
+        </p>
       </div> 
-      <p align="center">or</p>
-      <div style="display: flex;flex-wrap: wrap;width: 100%">
-        <div style="width: 50%">
-          <p style="text-align: center;"><a href="<?php echo e(url('login')); ?>">Agent Login</a></p>
-        </div>
-        <div style="width: 50%">
-          <p style="text-align: center;"><a href="<?php echo e(url('customer')); ?>">Register Now</a></p>
-        </div>
-      </div>
-
-
+      <p align="center" style="margin-top: 10px;">or</p>
+      <p style="text-align: center;margin-top: 5px;"><a href="<?php echo e(url('login')); ?>">Agent Login</a></p>
+      
     </div>
 
 
