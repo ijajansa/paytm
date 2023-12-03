@@ -20,7 +20,7 @@
                             <ul class="nk-menu">
                                 
                                 <li class="nk-menu-heading">  
-                                    <a href="{{url('dashboard')}}" class="nk-menu-link"><span class="nk-menu-text"><h6 class="overline-title text-primary-alt">Dashboard</h6></span></a>
+                                    <a href="javascript:void(0)" class="nk-menu-link"><span class="nk-menu-text"><h6 class="overline-title text-primary-alt">Dashboard</h6></span></a>
                                 </li><!-- .nk-menu-heading -->
                                 
                                 <li class="nk-menu-item has-sub">
