@@ -59,6 +59,7 @@
                                         
                                     </ul>
                                 </li> -->
+                                @if(Auth::user()->role_id==1)
                                  <li class="nk-menu-item">
                                     <a href="{{url('import-excel')}}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-file"></em></span>
@@ -66,6 +67,7 @@
                                     </a>
                                    
                                 </li>
+                                @endif
                                 <!-- .nk-menu-item -->
                                 
                             </ul><!-- .nk-menu -->

@@ -42,9 +42,13 @@
                                 <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Full Name</th>
+                                        <th>Customer Name</th>
                                         <th>Contact Number</th>
                                         <th>Agent ID</th>
+                                        <th>Agent Name</th>
+                                        <th>Status 1</th>
+                                        <th>Status 2</th>
+                                        <th>Status</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -94,6 +98,18 @@
             },
             {
                 "mData":"agent_id"
+            },
+            {
+                "mData":"agent_name"
+            },
+            {
+                "mData":"status"
+            },
+            {
+                "mData":"status2"
+            },
+            {
+                "mData":"main_status"
             }
             ]
 

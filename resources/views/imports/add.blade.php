@@ -27,7 +27,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="phone-no-1">Upload File</label>
                                         <div class="form-control-wrap">
-                                            <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{old('file')}}" id="phone-no-1" accept=".xlsx, .xls, .csv"/>
+                                            <input type="file" class="form-control @error('file') is-invalid @enderror" name="file" value="{{old('file')}}" id="phone-no-1" accept=".xlsx, .xls, .csv" required />
                                             @error('file')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>

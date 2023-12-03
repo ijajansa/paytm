@@ -34,7 +34,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="file" value="<?php echo e(old('file')); ?>" id="phone-no-1" accept=".xlsx, .xls, .csv"/>
+unset($__errorArgs, $__bag); ?>" name="file" value="<?php echo e(old('file')); ?>" id="phone-no-1" accept=".xlsx, .xls, .csv" required />
                                             <?php $__errorArgs = ['file'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

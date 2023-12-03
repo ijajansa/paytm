@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('style2.css')}}">
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <title>Responsive Regisration Form </title> 
 
@@ -33,6 +34,7 @@
         .nextBtn{
             display: inline !important;
         }
+        
     </style>
 </head>
 <body>
@@ -80,7 +82,7 @@
         </div>
 
         <div class="details ID">
-         <p style="text-align: center;margin: 0;padding: 0"> <button class="nextBtn" type="submit">
+         <p style="text-align: center;margin: 0;padding: 0" class="w3-animate-right"> <button class="nextBtn" type="submit">
             <span class="btnText">Submit</span>
         </button>
     </p>

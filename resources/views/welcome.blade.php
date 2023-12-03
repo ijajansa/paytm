@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="{{asset('style.css')}}">
 
     <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Agent Regisration Form | Vision India</title> 
@@ -218,7 +220,7 @@
                         @enderror
                     </div>
                 </div>
-                <p align="center" style="margin:0;padding: 0">
+                <p align="center" style="margin:0;padding: 0"  class="w3-animate-right">
                     <button class="nextBtn" type="submit">
                         <span class="btnText">Submit</span>
                     </button>

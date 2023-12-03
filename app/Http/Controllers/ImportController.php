@@ -22,7 +22,20 @@ class ImportController extends Controller
     		->join('users','customers.agent_id','users.id')
     		->select('customers.name as full_name','imports.*','users.agent_id')
     		->get();
-    		return DataTables::of($data)->make(true);
+    		return DataTables::of($data)->
+            addColumn('main_status',function($data){
+                if($data->is_payable==1)
+                {
+                    $btn = '<button class="btn btn-sm btn-success">Payable</button>';
+                }
+                else
+                {
+                    $btn = '<button class="btn btn-sm btn-danger">Unable To Pay</button>';
+                }
+                return $btn;
+            })
+            ->rawColumns(['main_status'])
+            ->make(true);
     	}
     	return view('imports.all');
     }

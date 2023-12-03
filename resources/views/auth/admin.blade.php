@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{asset('style2.css')}}">
   <!----===== Iconscout CSS ===== -->
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   <title>Admin Login </title> 
 
@@ -84,7 +85,7 @@
       </div>
 
       <div class="details ID">
-        <p align="center" style="margin: 0;padding: 0">
+        <p align="center" style="margin: 0;padding: 0"  class="w3-animate-right">
         <button type="submit" class="nextBtn" style="margin-bottom: 2px !important">
           <span class="btnText">Login</span>
         </button>

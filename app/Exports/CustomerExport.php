@@ -16,15 +16,19 @@ class CustomerExport implements FromCollection, WithHeadings
     {
     	return CImport::join('customers','customers.mobile_number','imports.contact_number')
     	->join('users','users.id','customers.agent_id')
-    	->select('customers.name','customers.mobile_number','users.agent_id','users.full_name')->get();
+    	->select('customers.name','customers.mobile_number','users.agent_id','users.full_name','imports.agent_contact_number','imports.status','imports.status2','imports.is_payable')->get();
     }
     public function headings(): array
     {
     	return [
     		'Customer Name',
-    		'Contact Number',
+    		'Customer Contact Number',
     		'Agent ID',
-    		'Agent Name',
+            'Agent Name',
+            'Agent Contact Number',
+            'Status',
+            'Status 2',
+            'Payable'
     	];
     }
 }

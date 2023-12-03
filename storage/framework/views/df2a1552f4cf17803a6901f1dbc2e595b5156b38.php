@@ -20,7 +20,7 @@
                             <ul class="nk-menu">
                                 
                                 <li class="nk-menu-heading">  
-                                    <a href="<?php echo e(url('dashboard')); ?>" class="nk-menu-link"><span class="nk-menu-text"><h6 class="overline-title text-primary-alt">Dashboard</h6></span></a>
+                                    <a href="javascript:void(0)" class="nk-menu-link"><span class="nk-menu-text"><h6 class="overline-title text-primary-alt">Dashboard</h6></span></a>
                                 </li><!-- .nk-menu-heading -->
                                 
                                 <li class="nk-menu-item has-sub">
@@ -59,6 +59,7 @@
                                         
                                     </ul>
                                 </li> -->
+                                <?php if(Auth::user()->role_id==1): ?>
                                  <li class="nk-menu-item">
                                     <a href="<?php echo e(url('import-excel')); ?>" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-file"></em></span>
@@ -66,6 +67,7 @@
                                     </a>
                                    
                                 </li>
+                                <?php endif; ?>
                                 <!-- .nk-menu-item -->
                                 
                             </ul><!-- .nk-menu -->

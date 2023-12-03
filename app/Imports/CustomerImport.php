@@ -22,41 +22,58 @@ class CustomerImport implements ToModel,WithHeadingRow,OnEachRow
     */
     public function model(array $row)
     {
-        return new CImport([
-            'contact_number' => substr($row['mobile_number'],0,10),
-            'is_available' => 1
+        $number = str_replace("X","",$row['referee_mobile_no_customer']);
+        $check = Customer::where('mobile_number','like','%'.$number.'%')->first();
+        if($check)
+        {
+            if($row['status']=='COMPLETED' && $row['status2']=='Active')
+                $payable = 1;
+            else
+                $payable = 0;
+            return new CImport([
+            'contact_number' => $check->mobile_number,
+            'agent_name' => $row['agent_name'],
+            'cpsa_name' => $row['cpsa_name'],
+            'agent_contact_number' => $row['agent_mobile_no'],
+            'status' => $row['status'],
+            'status2' => $row['status2'],
+            'user_type' => $row['user_type'],
+            'referee_id' => $row['referee_id_customer'],
+            'is_payable' => $payable
         ]);
+        }
+
     }
 
     public function onRow(Row $row)
     {
         // Perform database validation before importing
-        $rowData = $row->toArray();
-        $isEmptyRow = empty(array_filter($rowData, 'strlen'));
+        // $rowData = $row->toArray();
+        // $isEmptyRow = empty(array_filter($rowData, 'strlen'));
 
-        if ($isEmptyRow) {
-            return;
-        }
-        if (!$this->isValid($rowData)) {
-            return;// throw ValidationException::withMessages(['Skipped row due to validation error.']);
-        }
+        // if ($isEmptyRow) {
+        //     return;
+        // }
+        // if (!$this->isValid($rowData)) {
+        //     return;
+        // }
     }
 
-    protected function isValid(array $rowData)
-    {
-        $check = Customer::where('mobile_number',$rowData['mobile_number'])->first();
-        if($check)
-        {
-            $check1 = CImport::where('contact_number',$rowData['mobile_number'])->first();
-            if($check1)
-            {   
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-    }
+    // protected function isValid(array $rowData)
+    // {
+    //     $check = Customer::where('mobile_number',$rowData['mobile_number'])->first();
+    //     if($check)
+    //     {
+    //         $check1 = CImport::where('contact_number',$rowData['mobile_number'])->first();
+    //         if($check1)
+    //         {   
+    //             return false;
+    //         }
+    //         else
+    //         {
+    //             return true;
+    //         }
+    //     }
+    // }
 
 }
