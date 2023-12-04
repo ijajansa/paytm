@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="<?php echo e(asset('style.css')); ?>">
 
     <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
     <title>Agent Regisration Form | Vision India</title> 
@@ -29,9 +31,7 @@
         ::placeholder {
             text-transform: capitalize !important;
         }
-        .textUpper{
-            text-transform: uppercase;
-        }
+        
         .container form {
             position: relative;
             margin-top: 16px;
@@ -56,7 +56,7 @@
             <div class="form first">
                 <div class="details personal">
 
-                   <div class="fields">
+                 <div class="fields">
                     <div class="">  <span class="title">Personal Details</span></div>
                     <button type="button" onclick=window.location.href='<?php echo e(url("/")); ?>' style="height: 28px;">Add Customer</button>
                     <!-- <div class="" > <a class="btn " style="height: 28px;" href="/home.html">link text</a> </div> -->
@@ -96,7 +96,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> textUpper" name="dob">
+unset($__errorArgs, $__bag); ?>" name="dob">
                         <?php $__errorArgs = ['dob'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -117,7 +117,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> textUpper">
+unset($__errorArgs, $__bag); ?>">
                             <option disabled selected>Select gender</option>
                             <option>Male</option>
                             <option>Female</option>
@@ -253,7 +253,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> textUpper" placeholder="Enter your email" style="text-transform: none !important;">
+unset($__errorArgs, $__bag); ?>" placeholder="Enter your email" style="text-transform: none !important;">
                         <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -335,14 +335,14 @@ unset($__errorArgs, $__bag); ?>
                     </div> -->
                     <div class="input-field">
                         <label>Password</label>
-                        <input type="password" name="password" class="<?php $__errorArgs = ['password'];
+                        <input type="password" min="6" max="12" name="password" class="<?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> textUpper password" placeholder="Enter password">
+unset($__errorArgs, $__bag); ?> password" placeholder="Enter password">
                         <p align="right" style="font-size: 12px;margin: 0;padding: 0"><a onclick="showPassword()" href="javascript:void(0)"><span class="sh">Show</span> password</a></p>
                         <?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -357,14 +357,14 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="input-field">
                         <label>Confirm Password</label>
-                        <input type="password" name="password_confirmation" class="<?php $__errorArgs = ['password'];
+                        <input type="password" min="6" max="12" name="password_confirmation" class="<?php $__errorArgs = ['password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> textUpper password" placeholder="Enter confirm password">
+unset($__errorArgs, $__bag); ?> password" placeholder="Enter confirm password">
                         <p align="right" style="font-size: 12px;margin: 0;padding: 0"><a onclick="showPassword()" href="javascript:void(0)"><span class="sh">Show</span> password</a></p>
                         
                     </div>
@@ -463,7 +463,7 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                 </div>
-                <p align="center" style="margin:0;padding: 0">
+                <p align="center" style="margin:0;padding: 0"  class="w3-animate-right">
                     <button class="nextBtn" type="submit">
                         <span class="btnText">Submit</span>
                     </button>
@@ -478,6 +478,11 @@ unset($__errorArgs, $__bag); ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+
+    $('.textUpper').keyup(function() { 
+        this.value = this.value.toLocaleUpperCase(); 
+    }); 
+
     function showPassword()
     {
         x = $(".password").attr('type');

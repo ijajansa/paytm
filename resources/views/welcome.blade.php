@@ -31,9 +31,7 @@
         ::placeholder {
             text-transform: capitalize !important;
         }
-        .textUpper{
-            text-transform: uppercase;
-        }
+        
         .container form {
             position: relative;
             margin-top: 16px;
@@ -58,7 +56,7 @@
             <div class="form first">
                 <div class="details personal">
 
-                   <div class="fields">
+                 <div class="fields">
                     <div class="">  <span class="title">Personal Details</span></div>
                     <button type="button" onclick=window.location.href='{{url("/")}}' style="height: 28px;">Add Customer</button>
                     <!-- <div class="" > <a class="btn " style="height: 28px;" href="/home.html">link text</a> </div> -->
@@ -77,14 +75,14 @@
 
                     <div class="input-field">
                         <label>Date of Birth</label>
-                        <input type="date" placeholder="Enter birth date" max="{{date('Y-m-d')}}" value="{{old('dob')}}" class="@error('dob') is-invalid @enderror textUpper" name="dob">
+                        <input type="date" placeholder="Enter birth date" max="{{date('Y-m-d')}}" value="{{old('dob')}}" class="@error('dob') is-invalid @enderror" name="dob">
                         @error('dob')
                         <span class="invalid">{{$message}}</span>
                         @enderror
                     </div>
                     <div class="input-field">
                         <label>Gender</label>
-                        <select name="gender" class="@error('gender') is-invalid @enderror textUpper">
+                        <select name="gender" class="@error('gender') is-invalid @enderror">
                             <option disabled selected>Select gender</option>
                             <option>Male</option>
                             <option>Female</option>
@@ -136,7 +134,7 @@
 
                     <div class="input-field">
                         <label>Email Address</label>
-                        <input type="email" name="email" value="{{old('email')}}" class="@error('email') is-invalid @enderror textUpper" placeholder="Enter your email" style="text-transform: none !important;">
+                        <input type="email" name="email" value="{{old('email')}}" class="@error('email') is-invalid @enderror" placeholder="Enter your email" style="text-transform: none !important;">
                         @error('email')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -169,7 +167,7 @@
                     </div> -->
                     <div class="input-field">
                         <label>Password</label>
-                        <input type="password" name="password" class="@error('password') is-invalid @enderror textUpper password" placeholder="Enter password">
+                        <input type="password" min="6" max="12" name="password" class="@error('password') is-invalid @enderror password" placeholder="Enter password">
                         <p align="right" style="font-size: 12px;margin: 0;padding: 0"><a onclick="showPassword()" href="javascript:void(0)"><span class="sh">Show</span> password</a></p>
                         @error('password')
                         <span class="invalid">{{$message}}</span>
@@ -177,7 +175,7 @@
                     </div>
                     <div class="input-field">
                         <label>Confirm Password</label>
-                        <input type="password" name="password_confirmation" class="@error('password') is-invalid @enderror textUpper password" placeholder="Enter confirm password">
+                        <input type="password" min="6" max="12" name="password_confirmation" class="@error('password') is-invalid @enderror password" placeholder="Enter confirm password">
                         <p align="right" style="font-size: 12px;margin: 0;padding: 0"><a onclick="showPassword()" href="javascript:void(0)"><span class="sh">Show</span> password</a></p>
                         
                     </div>
@@ -235,6 +233,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script type="text/javascript">
+
+    $('.textUpper').keyup(function() { 
+        this.value = this.value.toLocaleUpperCase(); 
+    }); 
+
     function showPassword()
     {
         x = $(".password").attr('type');

@@ -7,6 +7,8 @@
   <!----======== CSS ======== -->
   <link rel="stylesheet" href="<?php echo e(asset('style2.css')); ?>">
   <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
   <title>Admin Login </title> 
@@ -99,14 +101,14 @@ unset($__errorArgs, $__bag); ?>
       </div>
 
       <div class="details ID">
-        <p align="center" style="margin:0;padding: 0">
-        <button type="submit" class="nextBtn" style="margin-bottom: 2px !important">
+        <p align="center" style="margin:0;padding: 0" class="w3-animate-right">
+        <button type="submit" class="nextBtn " style="margin-bottom: 2px !important">
           <span class="btnText">Login</span>
         </button>
         </p>
       </div> 
       <p align="center" style="margin-top: 10px;">or</p>
-      <p style="text-align: center;margin-top: 5px;"><a href="<?php echo e(url('customer')); ?>">Register Now</a></p>
+      <p style="text-align: center;margin-top: 5px;"><a href="<?php echo e(url('admin/login')); ?>">Admin Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="<?php echo e(url('customer')); ?>">Register Now</a></p>
 
 
     </div>

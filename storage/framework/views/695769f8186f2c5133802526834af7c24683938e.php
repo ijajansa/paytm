@@ -25,14 +25,15 @@
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Full Name</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['full_name'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['full_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->full_name); ?>" name="full_name" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->full_name); ?>" name="full_name" placeholder="" id="full-name-1" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                                                 <?php $__errorArgs = ['full_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -91,7 +92,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->dob); ?>" name="dob" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" max="<?php echo e(date('Y-m-d')); ?>" value="<?php echo e($data->dob); ?>" name="dob" placeholder="" id="full-name-1">
                                                 <?php $__errorArgs = ['dob'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -112,14 +113,15 @@ unset($__errorArgs, $__bag); ?>
                                     <div class="form-group">
                                         <label class="form-label" for="full-name-11">Address</label>
                                         <div class="form-control-wrap">
-                                            <textarea rows="4" class="form-control <?php $__errorArgs = ['address'];
+                                            <textarea rows="4" class="form-control textUpper <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" name="address"  id="full-name-11" placeholder="Residence Address"><?php echo e(old('address',$data->address)); ?></textarea>
+unset($__errorArgs, $__bag); ?>" name="address"  id="full-name-11" placeholder="Residence Address" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)"><?php echo e(old('address',$data->address)); ?></textarea>
                                             <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -139,14 +141,15 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Street</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['street'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['street'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->street); ?>" name="street" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->street); ?>" name="street" placeholder="" id="full-name-1" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                                                 <?php $__errorArgs = ['street'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -165,14 +168,15 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">State</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['state'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['state'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->state); ?>" name="state" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->state); ?>" name="state" placeholder="" id="full-name-1" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                                                 <?php $__errorArgs = ['state'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -193,14 +197,15 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">City</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['city'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['city'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->city); ?>" name="city" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->city); ?>" name="city" placeholder="" id="full-name-1" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                                                 <?php $__errorArgs = ['city'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -226,7 +231,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->pincode); ?>" name="pincode" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->pincode); ?>" name="pincode" placeholder="" id="full-name-1" maxlength="6" onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
                                                 <?php $__errorArgs = ['pincode'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -311,7 +316,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->mobile_number); ?>" name="mobile_number" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->mobile_number); ?>" name="mobile_number" maxlength="10" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="" id="full-name-1">
                                                 <?php $__errorArgs = ['mobile_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -339,7 +344,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->aadhar_number); ?>" name="aadhar_number" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->aadhar_number); ?>" name="aadhar_number" maxlength="12" onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="" id="full-name-1">
                                                 <?php $__errorArgs = ['aadhar_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -360,7 +365,7 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">PAN Number</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['pan_number'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['pan_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
@@ -394,7 +399,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->visible_password); ?>" name="visible_password" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->visible_password); ?>" maxlength="12" minlength="6" name="visible_password" placeholder="" id="full-name-1">
                                                 <?php $__errorArgs = ['visible_password'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -418,14 +423,15 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Bank Name</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['bank_name'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['bank_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->bank_name); ?>" name="bank_name" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->bank_name); ?>" name="bank_name" placeholder="" id="full-name-1" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                                                 <?php $__errorArgs = ['bank_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -445,14 +451,15 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Accountant Name</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['accountant_name'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['accountant_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->accountant_name); ?>" name="accountant_name" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->accountant_name); ?>" name="accountant_name" placeholder="" id="full-name-1" onkeypress="return (event.charCode > 64 && 
+                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
                                                 <?php $__errorArgs = ['accountant_name'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -479,7 +486,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->account_number); ?>" name="account_number" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->account_number); ?>" name="account_number"  onkeypress='return event.charCode >= 48 && event.charCode <= 57' placeholder="" id="full-name-1">
                                                 <?php $__errorArgs = ['account_number'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -499,14 +506,14 @@ unset($__errorArgs, $__bag); ?>
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">IFSC Code</label>
                                             <div class="form-control-wrap">
-                                                <input type="text" class="form-control <?php $__errorArgs = ['ifsc_code'];
+                                                <input type="text" class="form-control textUpper <?php $__errorArgs = ['ifsc_code'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
 if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->ifsc_code); ?>" name="ifsc_code" placeholder="" id="full-name-1">
+unset($__errorArgs, $__bag); ?>" value="<?php echo e($data->ifsc_code); ?>" name="ifsc_code" placeholder="" id="full-name-1" >
                                                 <?php $__errorArgs = ['ifsc_code'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -537,6 +544,12 @@ unset($__errorArgs, $__bag); ?>
     </div>
 </div>
 
+<script type="text/javascript">
+    $('.textUpper').keyup(function() { 
+        this.value = this.value.toLocaleUpperCase(); 
+    }); 
+
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('admin-layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH F:\xampp1\htdocs\paytm\resources\views/agents/edit.blade.php ENDPATH**/ ?>

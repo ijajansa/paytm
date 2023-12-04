@@ -94,7 +94,7 @@
         </p>
       </div> 
       <p align="center" style="margin-top: 10px;">or</p>
-      <p style="text-align: center;margin-top: 5px;"><a href="{{url('customer')}}">Register Now</a></p>
+      <p style="text-align: center;margin-top: 5px;"><a href="{{url('admin/login')}}">Admin Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{{url('customer')}}">Register Now</a></p>
 
 
     </div>
