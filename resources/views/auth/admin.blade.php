@@ -91,9 +91,9 @@
         </button>
         </p>
       </div> 
-      <p align="center" style="margin-top: 10px;">or</p>
+      <!-- <p align="center" style="margin-top: 10px;">or</p>
       <p style="text-align: center;margin-top: 5px;"><a href="{{url('login')}}">Agent Login</a></p>
-      
+       -->
     </div>
 
 

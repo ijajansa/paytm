@@ -16,19 +16,25 @@ class CustomerExport implements FromCollection, WithHeadings
     {
     	return CImport::join('customers','customers.mobile_number','imports.contact_number')
     	->join('users','users.id','customers.agent_id')
-    	->select('customers.name','customers.mobile_number','users.agent_id','users.full_name','imports.agent_contact_number','imports.status','imports.status2','imports.is_payable')->get();
+    	->select('imports.cpsa_name','users.full_name','imports.agent_contact_number','users.agent_id','users.bank_name','users.accountant_name','users.account_number','users.ifsc_code','imports.status','imports.import_date','imports.status2','customers.mobile_number','imports.user_type','imports.referee_id')->get();
     }
     public function headings(): array
     {
     	return [
-    		'Customer Name',
-    		'Customer Contact Number',
+            'CPSA Name',
+    		'Agent Name',
+    		'Agent Mobile No',
     		'Agent ID',
-            'Agent Name',
-            'Agent Contact Number',
+            'Bank Name',
+            'Account Holder Name',
+            'Account Number',
+            'IFSC Code',
             'Status',
+            'Created Date',
             'Status 2',
-            'Payable'
+            'Referee Mobile No (Customer)',
+            'User Type',
+            'Referee Id (Customer)'
     	];
     }
 }
