@@ -32,6 +32,10 @@ class SubAgentController extends Controller
             {
                 $data = $data->where('customers.agent_id',$request->agent_id);
             }
+            if($request->date!=null)
+            {
+                $data = $data->whereDate('customers.created_at',$request->date);
+            }
             if(Auth::user()->role_id!=1)
             {
                 $data = $data->where('customers.agent_id',Auth::user()->id);
@@ -39,10 +43,10 @@ class SubAgentController extends Controller
 
             $data = $data->select('customers.*','users.agent_id','users.mobile_number as agent_number','users.full_name')->get();
     		return DataTables::of($data)
-      //       ->addColumn('action',function($data){
-    		// 	return '<button onclick="deleteRecord('.$data->id.')" class="btn btn-danger btn-sm"><i class="icon ni ni-trash"></i></button>';
-    		// })
-    		// ->rawColumns(['action'])
+            ->addColumn('created_date',function($data){
+    			return date('d-m-Y',strtotime($data->created_at));
+    		})
+    		->rawColumns(['created_date'])
             ->make(true);
     	}
         

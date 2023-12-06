@@ -54,6 +54,9 @@
 
                                             </select>
                                 </div>
+                                <div class="col-lg-3">
+                                    <input type="date" class="form-control" id="date" onchange ="applyFilter()">
+                                </div>
                                 <div class="col-lg-12">
                                     <table class="table" id="myTable">
                                 <thead>
@@ -66,8 +69,8 @@
                                         <th>Agent Name</th>
                                         <th>Agent Contact Number</th>
                                         <?php endif; ?>
-<!--                                         <th>Action</th>
- -->                                    </tr>
+                                        <th>Created Date</th>
+                                    </tr>
                                 </thead>
                             </table>
                                 </div>
@@ -96,6 +99,7 @@
 
         agent_id = $("#agent_id").val();
         keyword = $("#search").val();
+        date = $("#date").val();
 
             NioApp.DataTable('#myTable', {
             "processing": true,
@@ -103,7 +107,7 @@
             "searching":false,
             "bLengthChange":false,
 
-            ajax:"<?php echo e(url('customers')); ?>?agent_id="+agent_id+"&keyword="+keyword,
+            ajax:"<?php echo e(url('customers')); ?>?agent_id="+agent_id+"&keyword="+keyword+"&date="+date,
             "order":[
             [0,"desc"]
             ],
@@ -139,9 +143,9 @@
                 "mData":"agent_number"
             },
             <?php endif; ?>
-            // {
-            //     "mData":"action"
-            // }
+            {
+                "mData":"created_date"
+            }
             ]
 
         });
