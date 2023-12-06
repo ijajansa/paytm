@@ -144,4 +144,27 @@ class PanelController extends Controller
         $data = LoanApplication::where('loan_applications.id',$id)->join('loan_masters','loan_masters.id','loan_applications.type')->select('loan_applications.*','loan_masters.name as loan_name')->first();
         return view('front.loan-view',compact('data'));
     }
+    public function loadChangePasswordPage()
+    {
+        return view('loan-masters.add');
+    }
+
+    public function changePassword(Request $request)
+    {
+        $id = Auth::user()->id;
+
+        $request->validate([
+            'email' => 'required|unique:users,email,'.$id
+        ]);
+        $data = User::find($id);
+        $data->full_name = $request->full_name;
+        $data->email = $request->email;
+        if($request->password!=null)
+        {
+            $data->password = \Hash::make($request->password);
+            $data->visible_password = $request->password;
+        }
+        $data->save();
+        return redirect()->back()->with('success','Username and password changed successfully');
+    }
 }

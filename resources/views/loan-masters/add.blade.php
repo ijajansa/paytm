@@ -6,41 +6,28 @@
         <div class="nk-content-inner">
             <div class="nk-content-body">
                 <div class="nk-block-head nk-block-head-sm">
+                    @include('admin-layouts.flash')
                     <div class="nk-block-between">
-                        <!-- .nk-block-head-content -->
+                        <div class="nk-block-head-content">
+                            <h3 class="nk-block-title page-title">Change Username & Password</h3>
+
+                        </div><!-- .nk-block-head-content -->
                     </div><!-- .nk-block-between -->
                 </div><!-- .nk-block-head -->
                 <div class="nk-block nk-block-lg">
 
                     <div class="card card-bordered card-preview">
                         <div class="card-inner">
-                            <form method="POST" action="{{url('loan-types/add')}}" enctype="multipart/form-data">
+                            <form method="POST" action="{{url('change-password')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row g-4">
-                                 <div class="nk-block-head-content">
-                                    <h3 class="nk-block-title page-title">Add New Type</h3>
-
-                                </div>
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label class="form-label" for="full-name-1">Icon <span class="text-danger">*</span></label>
+                                        <label class="form-label" for="full-name-1">Full Name <span class="text-danger">*</span></label>
                                         <div class="form-control-wrap">
-                                            <input type="file" class="form-control @error('image') is-invalid @enderror" value="{{old('image')}}" name="image" placeholder="eg. Personal Loan" id="full-name-1">
-                                            @error('image')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-4">
-                                    <div class="form-group">
-                                        <label class="form-label" for="full-name-1">Name <span class="text-danger">*</span></label>
-                                        <div class="form-control-wrap">
-                                            <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" name="name" placeholder="eg. Personal Loan" id="full-name-1">
-                                            @error('name')
+                                            <input type="text" class="form-control @error('full_name') is-invalid @enderror" value="{{old('full_name',Auth::user()->full_name)}}" name="full_name" placeholder="Enter Full Name" id="full-name-1"  onkeypress="return (event.charCode > 64 && 
+                                            event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)">
+                                            @error('full_name')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -51,10 +38,10 @@
 
                                 <div class="col-lg-4">
                                     <div class="form-group">
-                                        <label class="form-label" for="full-name-11">Additional Text <span class="text-danger">*</span></label>
+                                        <label class="form-label" for="full-name-4">Email ID</label>
                                         <div class="form-control-wrap">
-                                            <input type="text" class="form-control @error('additional_text') is-invalid @enderror" value="{{old('additional_text')}}" name="additional_text" placeholder="eg. Starting ROI @ 10.40%" id="full-name-11">
-                                            @error('additional_text')
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email',Auth::user()->email)}}" name="email" placeholder="Enter Email ID" id="full-name-4">
+                                            @error('email')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -62,10 +49,42 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="full-name-13">Password </label>
+                                        <div class="form-control-wrap">
+                                            <input type="text" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}" name="password" placeholder="Enter Password" id="full-name-13">
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                            <span>* keep field blank if don't want to change password</span>
+                                        </div>
+                                    </div>
+                                </div>
+<!-- 
+                                <div class="col-lg-4">
+                                    <div class="form-group">
+                                        <label class="form-label" for="phone-no-1">Profile Photo</label>
+                                        <div class="form-control-wrap">
+                                            <input type="file" class="form-control @error('profile') is-invalid @enderror" name="profile" value="{{old('profile')}}" id="phone-no-1" onchange="showImg(event)"/>
+                                            <img id="showImage"  style="height:100px; width:100px;">
+                                            <i id="showIcon" class="material-icons">add_a_photo</i>
+                                            @error('profile')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div> -->
+                               
+
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-primary">Save</button>
+                                        <button type="submit" class="btn btn-lg btn-primary">Update Credentials</button>
                                     </div>
                                 </div>
                             </div>

@@ -100,3 +100,5 @@ Route::group(['prefix' => 'loan-applications', 'middleware'=> ['auth']], functio
 	Route::post('upload-loan',[PanelController::class, 'uploadLoan']);
 	Route::post('edit-dsa/{id}',[PanelController::class, 'updateDSA']);
 
+Route::get('change-password',[PanelController::class, 'loadChangePasswordPage']);
+Route::post('change-password',[PanelController::class, 'changePassword']);

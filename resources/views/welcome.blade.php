@@ -95,7 +95,7 @@
 
                     <div class="input-field">
                         <label>Residential Address</label>
-                        <input type="text" value="{{old('address')}}" name="address" class="@error('address') is-invalid @enderror textUpper" placeholder="Enter your residential">
+                        <input type="text" value="{{old('address')}}" name="address" class="@error('address') is-invalid @enderror textUpper" autocomplete="off" placeholder="Enter your residential" autosave="off">
                         @error('address')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -134,7 +134,7 @@
 
                     <div class="input-field">
                         <label>Email Address</label>
-                        <input type="email" name="email" value="{{old('email')}}" class="@error('email') is-invalid @enderror" placeholder="Enter your email" style="text-transform: none !important;">
+                        <input type="email" name="email" value="{{old('email')}}" class="@error('email') is-invalid @enderror textLower" placeholder="Enter your email" style="text-transform: none !important;">
                         @error('email')
                         <span class="invalid">{{$message}}</span>
                         @enderror
@@ -236,6 +236,9 @@
 
     $('.textUpper').keyup(function() { 
         this.value = this.value.toLocaleUpperCase(); 
+    }); 
+    $('.textLower').keyup(function() { 
+        this.value = this.value.toLocaleLowerCase(); 
     }); 
 
     function showPassword()

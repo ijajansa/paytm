@@ -46,8 +46,10 @@
                                         <th>Contact Number</th>
                                         <th>Agent ID</th>
                                         <th>Agent Name</th>
+                                        <th>User Type</th>
                                         <th>Status 1</th>
                                         <th>Status 2</th>
+                                        <th>Created At</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -103,10 +105,16 @@
                 "mData":"agent_name"
             },
             {
+                "mData":"user_type"
+            },
+            {
                 "mData":"status"
             },
             {
                 "mData":"status2"
+            },
+            {
+                "mData":"import_date"
             },
             {
                 "mData":"main_status"

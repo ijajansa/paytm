@@ -44,7 +44,7 @@
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">
-                                    <li><a href="<?php echo e(url('change-password')); ?>/<?php echo e(Auth::user()->id); ?>"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
+                                    <li><a href="<?php echo e(url('change-password')); ?>"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
                                     <!-- <li><a href="<?php echo e(config('app.baseURL')); ?>/changepassword/<?php echo e(Auth::user()->id); ?>"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li> -->
                                 </ul>
                             </div>

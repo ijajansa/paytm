@@ -66,8 +66,8 @@
                                         <th>Agent Name</th>
                                         <th>Agent Contact Number</th>
                                         <?php endif; ?>
-                                        <th>Action</th>
-                                    </tr>
+<!--                                         <th>Action</th>
+ -->                                    </tr>
                                 </thead>
                             </table>
                                 </div>
@@ -139,9 +139,9 @@
                 "mData":"agent_number"
             },
             <?php endif; ?>
-            {
-                "mData":"action"
-            }
+            // {
+            //     "mData":"action"
+            // }
             ]
 
         });

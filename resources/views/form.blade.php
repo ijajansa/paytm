@@ -34,10 +34,50 @@
         .nextBtn{
             display: inline !important;
         }
+        body{
+            justify-content: space-around !important;
+        }
+        .con2 {
+            width: 55% !important
+        }
         
+        @media(max-width: 600px){
+        .con2 {
+            width: 100% !important
+        }    
+        body{
+            display: block !important;
+        }
+        }
     </style>
 </head>
 <body>
+
+<div class="container con2" style="background-color: transparent;box-shadow: none;">
+    <div style="text-align: center;width: 62%;margin-left: 20%">
+        <p align="center"><img src="{{asset('assets/images/qr-code.jpeg')}}" style="width: 120px;border-radius: 10px"></p>
+    <h3 style="font-weight: bold">VISIONINDIA TECH SERVICE LIMITED</h3>
+    <hr style="border-top: 1px solid #aba5a5;
+    margin: 12px 0;">
+    </div>
+  <h5 style="color: black;font-size: 13px">* Dear Agents Please note below points.</h5>
+  <ol style="color: black;list-style-type: none;font-size: 13px;">
+    <li>सफलतापूर्वक पंजीकृत होने के बाद सभी एजेंटों को ग्राहक से दिए गए  QR Code पर 1 रुपये का आउटगोइंग  लेनदेन करना है। (जो भुगतान के लिए पात्र हैं)</li>
+
+    <li>Status COMPLETED और  Status2 ACTIVE दर्शाती है कि यूपीआई बनाया गया है और दिए गए  QR Code पर एक आउटगोइंग लेनदेन भी किया गया है। (जो भुगतान के लिए पात्र हैं)
+    </li>
+    <li>User Type में  NEW_USER और  DORMANT_USER दोनों  UPI निर्माण और दिए  गए  QR Code पर एक आउटगोइंग लेनदेन के बाद संबंधित (जो भुगतान के लिए पात्र हैं)
+    </li>
+    <li>Status ACTIVE या - और Status2 जैसा कि HANDLE_CREATION दर्शाता है कि UPI बनाया गया है, हालांकि दिए गए QR Code पर एक आउटगोइंग लेनदेन नहीं हुआ है। (जो भुगतान के लिए पात्र नहीं हैं)
+    </li>
+    <li>Status & status2 में FAILURE बताती है कि ग्राहक पहले से ही Paytm पर है और सक्रिय है। (जो भुगतान के लिए पात्र नहीं हैं)</li>
+
+    <li>स्टेटस Overridden का मतलब है कि ग्राहक पहले ही अन्य लिंक के साथ यूपीआई का प्रयास कर चुके हैं। (जो भुगतान के लिए पात्र नहीं हैं)</li>
+
+    <li>Referee id जो  PayTm की आंतरिक अद्वितीय उपयोगकर्ता संदर्भ आईडी है।</li>
+  </ol>
+</div>
+
     <div class="container" style="">
       <div >
         <img  class="text-center"  src="{{asset('img/icon_main.png')}}" alt="">
@@ -94,6 +134,7 @@
 
 </form>
 </div>
+
 
 <script src="{{asset('script.js')}}"></script>
 </body>

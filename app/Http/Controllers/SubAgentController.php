@@ -20,9 +20,12 @@ class SubAgentController extends Controller
                 $data = $data->where(function($query) use ($request){
                     $query->where('customers.name','like','%'.$request->keyword.'%')
                     ->orWhere('customers.mobile_number','like','%'.$request->keyword.'%')
-                    ->orWhere('users.agent_id','like','%'.$request->keyword.'%')
-                    ->orWhere('users.full_name','like','%'.$request->keyword.'%')
-                    ->orWhere('users.mobile_number','like','%'.$request->keyword.'%');
+                    ->orWhere('users.agent_id','like','%'.$request->keyword.'%');
+                    if(Auth::user()->role_id==1)
+                    {
+                        $query = $query->orWhere('users.full_name','like','%'.$request->keyword.'%');
+                    }
+                    $query = $query->orWhere('users.mobile_number','like','%'.$request->keyword.'%');
                 });
             }
             if($request->agent_id!=null)
@@ -35,10 +38,12 @@ class SubAgentController extends Controller
             }
 
             $data = $data->select('customers.*','users.agent_id','users.mobile_number as agent_number','users.full_name')->get();
-    		return DataTables::of($data)->addColumn('action',function($data){
-    			return '<button onclick="deleteRecord('.$data->id.')" class="btn btn-danger btn-sm"><i class="icon ni ni-trash"></i></button>';
-    		})
-    		->rawColumns(['action'])->make(true);
+    		return DataTables::of($data)
+      //       ->addColumn('action',function($data){
+    		// 	return '<button onclick="deleteRecord('.$data->id.')" class="btn btn-danger btn-sm"><i class="icon ni ni-trash"></i></button>';
+    		// })
+    		// ->rawColumns(['action'])
+            ->make(true);
     	}
         
         $agents = User::where('role_id',2)->where('is_active',1)->orderBy('full_name','ASC')->get();

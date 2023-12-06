@@ -135,24 +135,7 @@ unset($__errorArgs, $__bag); ?>
 
   </form>
 </div>
-<div class="container con2">
-  <h5 style="color: green;">* Dear Agents Please note below points.</h5>
-  <ol>
-    <li>सफलतापूर्वक पंजीकृत होने के बाद सभी एजेंटों को ग्राहक से दिए गए  QR Code पर 1 रुपये का आउटगोइंग  लेनदेन करना है। (जो भुगतान के लिए पात्र हैं)</li>
 
-    <li>Status COMPLETED और  Status2 ACTIVE दर्शाती है कि यूपीआई बनाया गया है और दिए गए  QR Code पर एक आउटगोइंग लेनदेन भी किया गया है। (जो भुगतान के लिए पात्र हैं)
-    </li>
-    <li>User Type में  NEW_USER और  DORMANT_USER दोनों  UPI निर्माण और दिए  गए  QR Code पर एक आउटगोइंग लेनदेन के बाद संबंधित (जो भुगतान के लिए पात्र हैं)
-    </li>
-    <li>Status ACTIVE या - और Status2 जैसा कि HANDLE_CREATION दर्शाता है कि UPI बनाया गया है, हालांकि दिए गए QR Code पर एक आउटगोइंग लेनदेन नहीं हुआ है। (जो भुगतान के लिए पात्र नहीं हैं)
-    </li>
-    <li>Status & status2 में FAILURE बताती है कि ग्राहक पहले से ही Paytm पर है और सक्रिय है। (जो भुगतान के लिए पात्र नहीं हैं)</li>
-
-    <li>स्टेटस Overridden का मतलब है कि ग्राहक पहले ही अन्य लिंक के साथ यूपीआई का प्रयास कर चुके हैं। (जो भुगतान के लिए पात्र नहीं हैं)</li>
-
-    <li>Referee id जो  PayTm की आंतरिक अद्वितीय उपयोगकर्ता संदर्भ आईडी है।</li>
-  </ol>
-</div>
 <script src="<?php echo e(asset('script.js')); ?>"></script>
 </body>
 </html><?php /**PATH F:\xampp1\htdocs\paytm\resources\views/auth/login.blade.php ENDPATH**/ ?>

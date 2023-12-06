@@ -44,7 +44,7 @@
                             </div>
                             <div class="dropdown-inner">
                                 <ul class="link-list">
-                                    <li><a href="{{url('change-password')}}/{{Auth::user()->id}}"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
+                                    <li><a href="{{url('change-password')}}"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li>
                                     <!-- <li><a href="{{config('app.baseURL')}}/changepassword/{{Auth::user()->id}}"><em class="icon ni ni-setting-alt"></em><span>Change Password</span></a></li> -->
                                 </ul>
                             </div>

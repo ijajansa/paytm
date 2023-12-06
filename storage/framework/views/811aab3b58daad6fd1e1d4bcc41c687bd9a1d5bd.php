@@ -144,7 +144,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?> textUpper" placeholder="Enter your residential">
+unset($__errorArgs, $__bag); ?> textUpper" autocomplete="off" placeholder="Enter your residential" autosave="off">
                         <?php $__errorArgs = ['address'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -253,7 +253,7 @@ if (isset($message)) { $__messageOriginal = $message; }
 $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
-unset($__errorArgs, $__bag); ?>" placeholder="Enter your email" style="text-transform: none !important;">
+unset($__errorArgs, $__bag); ?> textLower" placeholder="Enter your email" style="text-transform: none !important;">
                         <?php $__errorArgs = ['email'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -481,6 +481,9 @@ unset($__errorArgs, $__bag); ?>
 
     $('.textUpper').keyup(function() { 
         this.value = this.value.toLocaleUpperCase(); 
+    }); 
+    $('.textLower').keyup(function() { 
+        this.value = this.value.toLocaleLowerCase(); 
     }); 
 
     function showPassword()
