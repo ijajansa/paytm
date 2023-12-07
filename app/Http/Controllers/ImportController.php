@@ -9,7 +9,7 @@ use App\Imports\CustomerImport;
 use App\Exports\CustomerExport;
 use App\Models\CImport;
 use Excel;
-
+use Auth;
 
 class ImportController extends Controller
 {
@@ -19,8 +19,12 @@ class ImportController extends Controller
     	{
     		$data = CImport::join('customers','customers.mobile_number','imports.contact_number')
     		->orderBy('imports.id','ASC')
-    		->join('users','customers.agent_id','users.id')
-    		->select('customers.name as full_name','imports.*','users.agent_id')
+    		->join('users','customers.agent_id','users.id');
+            if(Auth::user()->role_id!=1)
+            {
+                $data = $data->where('customers.agent_id',Auth::user()->id);
+            }
+    		$data = $data->select('customers.name as full_name','imports.*','users.agent_id')
     		->get();
     		return DataTables::of($data)->
             addColumn('main_status',function($data){
@@ -34,7 +38,18 @@ class ImportController extends Controller
                 }
                 return $btn;
             })
-            ->rawColumns(['main_status'])
+            ->addColumn('contact',function($data){
+                if(\Auth::user()->role_id==1)
+                {
+                    $btn = $data->contact_number;
+                }
+                else
+                {
+                    $btn = 'XXXXX'.substr($data->contact_number, 5,5);
+                }
+                return $btn;
+            })
+            ->rawColumns(['main_status','contact'])
             ->make(true);
     	}
     	return view('imports.all');

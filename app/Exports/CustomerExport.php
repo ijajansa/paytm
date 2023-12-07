@@ -5,7 +5,7 @@ namespace App\Exports;
 use App\Models\CImport;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
-
+use Auth;
 
 class CustomerExport implements FromCollection, WithHeadings
 {
@@ -14,9 +14,14 @@ class CustomerExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-    	return CImport::join('customers','customers.mobile_number','imports.contact_number')
-    	->join('users','users.id','customers.agent_id')
-    	->select('imports.cpsa_name','users.full_name','imports.agent_contact_number','users.agent_id','users.bank_name','users.accountant_name','users.account_number','users.ifsc_code','imports.status','imports.import_date','imports.status2','customers.mobile_number','imports.user_type','imports.referee_id')->get();
+    	$data = CImport::join('customers','customers.mobile_number','imports.contact_number')
+    	->join('users','users.id','customers.agent_id');
+        if(Auth::user()->role_id!=1)
+        {
+            $data = $data->where('customers.agent_id',Auth::user()->id);
+        }
+    	$data = $data->select('imports.cpsa_name','users.full_name','imports.agent_contact_number','users.agent_id','users.bank_name','users.accountant_name','users.account_number','users.ifsc_code','imports.status','imports.import_date','imports.status2','customers.mobile_number','imports.user_type','imports.referee_id')->get();
+        return $data;
     }
     public function headings(): array
     {

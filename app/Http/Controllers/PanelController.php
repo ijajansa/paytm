@@ -165,6 +165,12 @@ class PanelController extends Controller
             $data->visible_password = $request->password;
         }
         $data->save();
+        
+        if($request->password!=null)
+        {
+            Auth::logout();
+            return redirect('/');
+        }
         return redirect()->back()->with('success','Username and password changed successfully');
     }
 }

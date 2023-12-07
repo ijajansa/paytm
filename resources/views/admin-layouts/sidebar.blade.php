@@ -59,15 +59,20 @@
                                         
                                     </ul>
                                 </li> -->
-                                @if(Auth::user()->role_id==1)
+                                
                                  <li class="nk-menu-item">
                                     <a href="{{url('import-excel')}}" class="nk-menu-link">
                                         <span class="nk-menu-icon"><em class="icon ni ni-file"></em></span>
-                                        <span class="nk-menu-text">Import Excel</span>
+                                        <span class="nk-menu-text">
+                                        @if(Auth::user()->role_id==1)
+                                        Import Excel
+                                        @else
+                                        Customer Report
+                                        @endif
+                                        </span>
                                     </a>
                                    
                                 </li>
-                                @endif
                                 <!-- .nk-menu-item -->
                                 
                             </ul><!-- .nk-menu -->

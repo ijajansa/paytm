@@ -41,7 +41,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::group(['prefix' => 'import-excel', 'middleware'=> ['auth','role']], function(){
+Route::group(['prefix' => 'import-excel', 'middleware'=> ['auth']], function(){
 	Route::get('/',[ImportController::class, 'all']);
 	Route::get('add',[ImportController::class, 'add']);
 	Route::post('add',[ImportController::class, 'insert']);

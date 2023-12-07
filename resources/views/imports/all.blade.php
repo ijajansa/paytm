@@ -9,7 +9,13 @@
                     @include('admin-layouts.flash')
                     <div class="nk-block-between">
                         <div class="nk-block-head-content">
-                            <h3 class="nk-block-title page-title">Imported Customers</h3>
+                            <h3 class="nk-block-title page-title">
+                            @if(Auth::user()->role_id==1)
+                                Imported Customers
+                            @else
+                                Customer Report
+                            @endif
+                            </h3>
                         </div><!-- .nk-block-head-content -->
                         <div class="nk-block-head-content">
                             <div class="toggle-wrap nk-block-tools-toggle">
@@ -20,14 +26,17 @@
                                         <li class="nk-block-tools-opt d-none d-sm-block">
                                             <a id="status" class="btn btn-danger" style="display:none;"></a>
                                         </li>
-                                       
                                         <li class="nk-block-tools-opt d-none d-sm-block">
                                             <a href="{{url('export-excel')}}" class="btn btn-success"><em class="icon ni ni-download"></em><span>Export Excel</span></a>
+                                            @if(Auth::user()->role_id==1)
                                             <a href="{{url('import-excel/add')}}" class="btn btn-primary"><em class="icon ni ni-upload"></em><span>Import Excel</span></a>
+                                            @endif
                                         </li>
                                         <li class="nk-block-tools-opt d-block d-sm-none">
                                             <a href="{{url('export-excel/')}}" class="btn btn-icon btn-primary"><em class="icon ni ni-plus"></em></a>
+                                            @if(Auth::user()->role_id==1)
                                             <a href="{{url('import-excel/add')}}" class="btn btn-icon btn-primary"><em class="icon ni ni-plus"></em></a>
+                                            @endif
                                         </li>
                                     </ul>
                                 </div>
@@ -44,7 +53,9 @@
                                         <th>ID</th>
                                         <th>Customer Name</th>
                                         <th>Contact Number</th>
+                                        @if(Auth::user()->role_id==1)
                                         <th>Agent ID</th>
+                                        @endif
                                         <th>Agent Name</th>
                                         <th>User Type</th>
                                         <th>Status 1</th>
@@ -96,11 +107,13 @@
                 "mData":"full_name"
             },
             {
-                "mData":"contact_number"
+                "mData":"contact"
             },
+            @if(Auth::user()->role_id==1)
             {
                 "mData":"agent_id"
             },
+            @endif
             {
                 "mData":"agent_name"
             },
