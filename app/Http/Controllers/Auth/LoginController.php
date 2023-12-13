@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use App\Models\Notification;
 use Auth;
 
 class LoginController extends Controller
@@ -37,6 +38,12 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        $notifications = Notification::where('is_active',1)->get();
+        return view('auth.login',compact('notifications',$notifications));
     }
 
     public function authenticated(Request $request, $user) {

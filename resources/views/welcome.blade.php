@@ -39,7 +39,52 @@
             background-color: #fff;
             overflow: auto; 
         }
-    </style>
+
+        .modal {
+          display: none; /* Hidden by default */
+          position: fixed; /* Stay in place */
+          z-index: 1; /* Sit on top */
+          padding-top: 150px; /* Location of the box */
+          left: 0;
+          top: 0;
+          width: 100%; /* Full width */
+          height: 100%; /* Full height */
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgb(0,0,0); /* Fallback color */
+          background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+          background-color: #fefefe;
+          margin: auto;
+          padding: 20px;
+          /* border: 1px solid #888; */
+          width: 35%;
+          border-radius: 10px;
+      }
+      @media(max-width: 600px)
+      {
+        .modal-content {
+            width: 80%;
+        }
+    }
+
+    /* The Close Button */
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+</style>
 </head>
 <body>
     <div class="container">
@@ -47,7 +92,6 @@
       <div >
         <img  class="text-center"  src="{{asset('img/icon_main.png')}}" alt="">
     </div>
-
 
     <header style="text-align: center;">PAYTM Agent Registration Form</header>
     <div class="">
@@ -63,6 +107,8 @@
                 </div>
 
                 @include('admin-layouts.flash')
+                @if(session('success'))
+                @endif
                 <div class="fields">
                     <div class="input-field">
                         <label>Full Name</label>
@@ -228,6 +274,26 @@
     </form>
 </div>
 </div>
+<!-- <button id="myBtn">Open Modal</button> -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="hide()">&times;</span>
+    <p>Your Panel Credentials</p>
+    <span style="font-size: 12px;color: red">* make sure you have copied credentials and pasted</span>
+    <hr>
+    <div class="input-field">
+        <label>Agent ID</label><br>
+        <input type="text" @if(session('success')) value="{{session('data')->agent_id}}" @endif style="width: 100%" class="form-control" readonly><br>
+        <label>Password</label><br>
+        <input type="text" @if(session('success')) value="{{session('data')->visible_password}}" @endif style="width: 100%" class="form-control" readonly>
+    </div>
+</div>
+
+</div>
 
 <script src="{{asset('script.js')}}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -251,6 +317,17 @@
             $(".sh").text('Show');
             $(".password").attr('type','password');
         }
+    }
+</script>
+<script>
+    $(document).ready(function(){
+        @if(session('success'))
+            $("#myModal").show('modal');
+        @endif
+    });
+
+    function hide(){
+            $("#myModal").hide('modal');
     }
 </script>
 </body>

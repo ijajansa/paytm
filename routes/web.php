@@ -8,6 +8,7 @@ use App\Http\Controllers\LoanApplicationController;
 use App\Http\Controllers\LoanMasterController;
 use App\Http\Controllers\ImportController;
 use App\Http\Controllers\LoanDocumentController;
+use App\Http\Controllers\NotificationController;
 
 
 /*
@@ -102,3 +103,13 @@ Route::group(['prefix' => 'loan-applications', 'middleware'=> ['auth']], functio
 
 Route::get('change-password',[PanelController::class, 'loadChangePasswordPage']);
 Route::post('change-password',[PanelController::class, 'changePassword']);
+
+Route::group(['prefix' => 'notifications', 'middleware'=> ['auth','role']], function(){
+	Route::get('/',[NotificationController::class, 'all']);
+	Route::get('add',[NotificationController::class, 'add']);
+	Route::get('delete/{id}',[NotificationController::class, 'delete']);
+	Route::get('edit/{id}',[NotificationController::class, 'edit']);
+	Route::post('add',[NotificationController::class, 'insert']);
+	Route::get('status/{id}',[NotificationController::class, 'status']);
+	Route::post('edit/{id}',[NotificationController::class, 'update']);
+});

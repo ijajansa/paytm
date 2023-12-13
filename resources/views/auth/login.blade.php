@@ -53,25 +53,48 @@
       }
 
       .container {
-    max-width: 100%;
-    width: 100%;
-    border-radius: 6px;
-    padding: 30px;
-     margin: 0 0; 
-    background-color: #fff;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-}
-.con2{
-    margin-top: 10px;
-}
+        max-width: 100%;
+        width: 100%;
+        border-radius: 6px;
+        padding: 30px;
+        margin: 0 0; 
+        background-color: #fff;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+      .con2{
+        margin-top: 10px;
+      }
     }
     ol li {
       font-size: 13px;
     }
 
+    body{
+      display: block !important;
+    }
+    .main-container{
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
   </style>
 </head>
 <body>
+  <div style="
+  background-color: #4070f4;
+  padding-top: 4px;
+  color: #fff
+  ">
+  <marquee>
+    @foreach($notifications as $notification)
+    <b style="padding-right: 120px">{{$notification->title ?? ''}}</b>
+    @endforeach
+
+  </marquee>
+</div>
+<div class="main-container">
   <div class="container">
     <div >
       <a href="{{url('/')}}"><img  class="text-center"  src="{{asset('img/icon_main.png')}}" style="width: 140px;" alt=""></a>
@@ -120,6 +143,7 @@
 
 
   </form>
+</div>
 </div>
 
 <script src="{{asset('script.js')}}"></script>

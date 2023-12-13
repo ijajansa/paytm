@@ -73,6 +73,17 @@
                                     </a>
                                    
                                 </li>
+                                @if(Auth::user()->role_id==1)
+                                <li class="nk-menu-item">
+                                    <a href="{{url('notifications')}}" class="nk-menu-link">
+                                        <span class="nk-menu-icon"><em class="icon ni ni-bell"></em></span>
+                                        <span class="nk-menu-text">
+                                        Notifications
+                                        </span>
+                                    </a>
+                                   
+                                </li>
+                                @endif
                                 <!-- .nk-menu-item -->
                                 
                             </ul><!-- .nk-menu -->

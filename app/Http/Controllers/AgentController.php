@@ -104,7 +104,7 @@ class AgentController extends Controller
     }
     $data->agent_id = $agentId;
     $data->save();
-    return redirect()->back()->with('success','Agent registered successfully');
+    return redirect()->back()->with('success','Agent registered successfully')->with('data',$data);
 
 }
 
