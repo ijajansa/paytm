@@ -43,7 +43,7 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         $notifications = Notification::where('is_active',1)->get();
-        return view('auth.login',compact('notifications',$notifications));
+        return view('auth.login',compact('notifications'));
     }
 
     public function authenticated(Request $request, $user) {
