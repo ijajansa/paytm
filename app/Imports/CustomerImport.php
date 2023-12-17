@@ -22,7 +22,7 @@ class CustomerImport implements ToModel,WithHeadingRow,OnEachRow
     */
     public function model(array $row)
     {
-        $number = str_replace("X","",$row['referee_mobile_no_customer']);
+        $number = str_replace("X","",$row['referee_mobile_no']);
         $check = Customer::where('mobile_number','like','%'.$number.'%')->first();
         if($check)
         {
@@ -38,7 +38,7 @@ class CustomerImport implements ToModel,WithHeadingRow,OnEachRow
             'status' => $row['status'],
             'status2' => $row['status2'],
             'user_type' => $row['user_type'],
-            'referee_id' => $row['referee_id_customer'],
+            'referee_id' => $row['referee_id'],
             'is_payable' => $payable,
             'import_date' => date('Y-m-d'),
         ]);
