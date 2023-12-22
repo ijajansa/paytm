@@ -34,7 +34,7 @@ class ImportController extends Controller
                 }
                 else
                 {
-                    $btn = '<button class="btn btn-sm btn-danger">Unable To Pay</button>';
+                    $btn = '<button class="btn btn-sm btn-danger">Non Payable</button>';
                 }
                 return $btn;
             })
