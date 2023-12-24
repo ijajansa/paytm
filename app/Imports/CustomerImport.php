@@ -46,7 +46,7 @@ class CustomerImport implements ToModel,WithHeadingRow,OnEachRow
                     'user_type' => $row['user_type'],
                     'referee_id' => $row['referee_id'],
                     'is_payable' => $payable,
-                    'import_date' => date('Y-m-d'),
+                    'import_date' => date('Y-m-d',strtotime($row['created_date'])),
                 ]);
 
             }
