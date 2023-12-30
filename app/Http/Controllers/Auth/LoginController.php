@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
+use Auth;
+use App\Models\Notification;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use App\Models\Notification;
-use Auth;
 
 class LoginController extends Controller
 {
@@ -46,9 +48,9 @@ class LoginController extends Controller
         return view('auth.login',compact('notifications'));
     }
 
-    public function authenticated(Request $request, $user) {
-
-      Auth::logoutOtherDevices($request->get('password'));
-
-  } 
+    public function authenticated(Request $request, $user) 
+    {
+        $sessionId = Session::getId();
+        $sessions = DB::table('sessions')->where('user_id',$user->id)->where('id','!=',$sessionId)->delete();
+    } 
 }
