@@ -25,10 +25,7 @@ use App\Http\Controllers\NotificationController;
 Route::get('/', function () {
     return view('form');
 });
-Route::get('/migrate/{table}', function ($table) {
-    \Artisan::call('migrate:table', ['table' => $table]);
-    return 'Migration completed for table ' . $table;
-});
+
 Route::get('customer', function () {
     return view('welcome');
 });
